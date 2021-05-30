@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Color Transfer</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='uicss.css')}}">
+	<script class="jsbin" src="{{url_for('static',filename='jquery-3.4.1.min.js')}}"></script>
+
+	<script type="text/javascript">
+		function validateImages(){
+			var sphoto = document.ctform.srcphoto;
+			var tphoto = document.ctform.destphoto;
+			if(sphoto.files.length==0 || tphoto.files.length==0){
+				return false;
+			};
+		}
+
+
+		function readURLOne(input) {
+		        if (input.files && input.files[0]) {
+		            var reader = new FileReader();
+
+		            reader.onload = function (e) {
+		                $('#srcphoto')
+		                    .attr('src', e.target.result)
+		                    .width(150)
+		                    .height(200);
+				
+		            };
+
+		            reader.readAsDataURL(input.files[0]);
+		        }
+		    }
+
+		function readURLTwo(input) {
+		        if (input.files && input.files[0]) {
+		            var reader = new FileReader();
+
+		            reader.onload = function (e) {
+				$('#destphoto')
+		                    .attr('src', e.target.result)
+		                    .width(150)
+		                    .height(200);
+		            };
+
+		            reader.readAsDataURL(input.files[0]);
+		        }
+		    }
+
+		function erase(){
+		 $('#srcphoto').css('display', 'none');
+		 $('#destphoto').css('display', 'none');
+		}
+
+	</script>
+</head>
+<body>
+	<div>
+		<center>
+			<form method="POST" action="/" enctype="multipart/form-data" name="ctform" onsubmit="return validateImages();">
+				<h1 style="color:white;">Source Image </h1><span id="f"><input type="file" name="srcphoto" accept="image/*" data-type='image' id="file-upload" style="display:block;" onchange="readURLOne(this);"  /></span>
+				<h1 style="color:white;">Destination Image </h1><span id="f"><input type="file" name="destphoto" accept="image/*" data-type='image' id="file-upload" style="display:block;" onchange="readURLTwo(this);" /></span><br>
+				<button id="b" onclick="erase()">Submit</button>
+			</form>
+		</center>
+	</div>
+	<div>
+		<center>
+			<img src="#" id="srcphoto" alt="Source Image"  style="width:300px;display:inline-block;"/>
+			<img src="#" id="destphoto" alt="Destination Image" style="width:300px;display:inline-block;">
+		</center>
+	</div>
+	{% if flag==1 %}
+		<center>
+			<img src="{{url_for('static',filename='source/srcimg.bmp')}}" style="width:300px;display:inline-block;" />
+		<img src="{{url_for('static',filename='target/destimg.bmp')}}" style="width:300px;display:inline-block;" /></center><br><br>
+		<center>
+			<img src="{{url_for('static',filename='result/res.bmp')}}" style="width:300px;display:block;"/>
+		</center>
+	{% endif %}
+</body>
+</html>
+

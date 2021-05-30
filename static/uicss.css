@@ -1,0 +1,77 @@
+body{background-color: #220037;}
+
+.t{
+margin-top: 3%;
+color: white;
+text-shadow: 1.6px 1px 3px #ffffff;
+box-shadow: 2;
+}
+
+.funcs{
+	
+}
+
+#b{
+	width: 25%;
+	margin: 3%;
+	padding: 1.5%;
+	cursor: pointer;
+	font-weight: bolder;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: #60a3bc;
+	border-radius: 50px; 
+	display: inline-block;
+	border: none;
+	transition: all 0.2s ease 0s;
+}
+#b:hover{
+	background: none;
+	border:3px solid #60a3bc;
+	color: white;
+	
+}
+
+#f{
+	width: 25%;
+	margin: 10%;
+	padding: ;
+	color: white;
+}
+
+.add{
+	border-radius: 50px;
+	border: 4px solid #fff;
+}
+
+
+input[type=text], input[type=number], input[type=email], select {
+  width: 30%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit], button:not(.exclude) {
+  width: 30%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit], button:not(.exclude) {
+  background-color: #45a049;
+}
+
+
+
+
+
+
